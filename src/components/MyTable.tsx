@@ -1,27 +1,28 @@
-export default function MyTable(){
+export default function MyTable({myData}){
+    console.log(myData);
     return (
-        <>
+
             <table>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
 
-                </tr>
+                    {
+                        myData.map((item,index)=>{
+                            return(
+                                <tr>
+                                    <td>{item.ID}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.price}</td>
+                                </tr>
+
+                            )
+                        })
+                    }
+
+
                 </tbody>
             </table>
-            <table>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
 
-                </tr>
-                </tbody>
-            </table>
-        </>
+
 
     )
 
