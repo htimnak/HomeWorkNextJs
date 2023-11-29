@@ -1,4 +1,12 @@
-export default function MyTable({myData}){
+interface product{
+    ID:number,
+    name:string,
+    price:number
+}
+interface props{
+    myData : Array<product>
+}
+export default function MyTable({myData}: props){
     console.log(myData);
     return (
 
