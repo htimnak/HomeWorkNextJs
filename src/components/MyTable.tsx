@@ -4,22 +4,24 @@ interface product{
     price:number
 }
 interface props{
-    myData : Array<product>
+    myData : Array<product>,
+    caption ?: string
 }
-export default function MyTable({myData}: props){
+export default function MyTable({myData,caption}: props){
     console.log(myData);
     return (
 
-            <table>
+            <table className={"w-full bg-white text-black text-center  "}>
+                <caption style={{backgroundColor:"BurlyWood",captionSide:"bottom"}}>{caption}</caption>
                 <tbody>
 
                     {
                         myData.map((item,index)=>{
                             return(
                                 <tr>
-                                    <td>{item.ID}</td>
-                                    <td>{item.name}</td>
-                                    <td>{item.price}</td>
+                                    <td className={"border"}>{item.ID}</td>
+                                    <td className={"border"}>{item.name}</td>
+                                    <td className={"border"}>{item.price}</td>
                                 </tr>
 
                             )

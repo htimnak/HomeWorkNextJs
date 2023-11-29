@@ -20,8 +20,8 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
-      <MyTable myData={product}/>
-      <MyTable myData={product2}/>
+      <MyTable myData={product} caption={"product 1 list"}/>
+      <MyTable myData={product2} caption={"product 2 list"}/>
     </main>
   )
 }
