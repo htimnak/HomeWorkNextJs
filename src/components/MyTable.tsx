@@ -8,6 +8,9 @@ interface props{
     caption ?: string
 }
 export default function MyTable({myData,caption}: props){
+    const clickHandler = ()=>{
+        alert("clicked");
+    }
     console.log(myData);
     return (
 
@@ -22,6 +25,7 @@ export default function MyTable({myData,caption}: props){
                                     <td className={"border"}>{item.ID}</td>
                                     <td className={"border"}>{item.name}</td>
                                     <td className={"border"}>{item.price}</td>
+                                    <td className={"border"}><button onClick={clickHandler}>Click</button></td>
                                 </tr>
 
                             )
