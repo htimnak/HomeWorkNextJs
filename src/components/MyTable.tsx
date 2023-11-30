@@ -30,7 +30,11 @@ export default function MyTable({myData,caption}:props){
     return (
 
         <table className={"w-full bg-white text-black text-center  "}>
-            <caption style={{backgroundColor:"BurlyWood",captionSide:"bottom"}}>{caption}</caption>
+            {
+                /*caption != null ? <caption style={{backgroundColor:"BurlyWood",captionSide:"bottom"}}>{caption}</caption> : ''*/
+                caption && <caption style={{backgroundColor:"BurlyWood",captionSide:"bottom"}}>{caption}</caption>
+            }
+
             <tbody>
 
             {

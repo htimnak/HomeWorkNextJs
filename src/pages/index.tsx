@@ -16,12 +16,15 @@ export default function Home() {
     {ID: 9,name: "product 33",price: 500},
     {ID: 10,name: "product 44",price: 2000},
   ];
+
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
-      <MyTable myData={product} caption={"product 1 list"}/>
+      <MyTable myData={product} />
       <MyTable myData={product2} caption={"product 2 list"}/>
+      <MyTable myData={product2} caption={"product 3 list"}/>
+
     </main>
   )
 }
