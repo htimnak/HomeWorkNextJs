@@ -11,27 +11,38 @@ interface props{
     caption ?: string
 }
 export default function MyTable({myData,caption}:props){
-    const [CaptionState,setCaptionState]=useState(caption);
+    const [MyDataState,setMyDataState]=useState(myData);
 
 
-    const clickHandler = ()=>{
-        setCaptionState("updated caption");
+    const deleteHandler = (id:number)=>{
+      let result =  MyDataState.filter((item)=>{
+            if( item.ID === id){
+                return false;
+            }
+            else {
+                return  true;
+            }
+        });
+        console.log(result);
+        setMyDataState(result);
     }
 
     return (
 
         <table className={"w-full bg-white text-black text-center  "}>
-            <caption style={{backgroundColor:"BurlyWood",captionSide:"bottom"}}>{CaptionState}</caption>
+            <caption style={{backgroundColor:"BurlyWood",captionSide:"bottom"}}>{caption}</caption>
             <tbody>
 
             {
-                myData.map((item,index)=>{
+                MyDataState.map((item,index)=>{
                     return(
                         <tr>
                             <td className={"border"}>{item.ID}</td>
                             <td className={"border"}>{item.name}</td>
                             <td className={"border"}>{item.price}</td>
-                            <td className={"border"}><button onClick={clickHandler}>Click</button></td>
+                            <td className={"border"}><button onClick={()=>{
+                                deleteHandler(item.ID);
+                            }}>Delete</button></td>
                         </tr>
 
                     )
