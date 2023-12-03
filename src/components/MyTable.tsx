@@ -1,4 +1,5 @@
 import {useState} from "react";
+import AddForm from "@/components/AddForm";
 
 
 interface product{
@@ -28,8 +29,10 @@ export default function MyTable({myData,caption}:props){
     }
 
     return (
-
+        <>
+        <AddForm MyDataState ={MyDataState} setMyDataState ={setMyDataState}/>
         <table className={"w-full bg-white text-black text-center  "}>
+
             {
                 /*caption != null ? <caption style={{backgroundColor:"BurlyWood",captionSide:"bottom"}}>{caption}</caption> : ''*/
                 caption && <caption style={{backgroundColor:"BurlyWood",captionSide:"bottom"}}>{caption}</caption>
@@ -57,7 +60,7 @@ export default function MyTable({myData,caption}:props){
             </tbody>
         </table>
 
-
+        </>
 
     )
 
