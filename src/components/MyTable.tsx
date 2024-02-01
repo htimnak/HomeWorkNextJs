@@ -33,7 +33,7 @@ export default  function MyTable({myData , caption}:props) {
                 <tbody >
                 {
                     MyDataState.map((item,index)=> {
-                        {
+
                             return (
                                 <tr>
                                     <td className={"border border-gray-200 text-gray-400 "}>{item.ID}</td>
@@ -46,7 +46,7 @@ export default  function MyTable({myData , caption}:props) {
                                 </tr>
                             )
 
-                        }
+
                     })
                 }
 
