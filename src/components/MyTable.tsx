@@ -1,10 +1,18 @@
 import React from 'react';
+interface Product {
+    ID:number,
+    name:string,
+    price:number
+}
 
 export default  function MyTable({myData , caption}) {
     console.log(myData);
     return (
-        <table className={"w-full "}>
-            <caption className={"bg-green-200 text-gray-600"} style={{captionSide:"bottom"}}>{caption}</caption>
+        <table className={"w-full mb-24 "}>
+            {
+                caption && <caption className={"bg-green-200 text-gray-600"} style={{captionSide:"bottom"}}>{caption}</caption>
+            }
+
             <tbody >
             {
                 myData.map((item,index)=>{
