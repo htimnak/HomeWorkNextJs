@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import AddForm from "@/components/AddForm";
 interface product {
     ID:number,
     name:string,
@@ -22,33 +23,37 @@ export default  function MyTable({myData , caption}:props) {
     }
    // console.log(myData);
     return (
-        <table className={"w-full mb-24 "}>
-            {
-                caption && <caption className={"bg-green-200 text-gray-600"} style={{captionSide:"bottom"}}>{caption}</caption>
-            }
+        <>
+            <AddForm/>
+            <table className={"w-full mb-24 "}>
+                {
+                    caption && <caption className={"bg-green-200 text-gray-600"} style={{captionSide:"bottom"}}>{caption}</caption>
+                }
 
-            <tbody >
-            {
-                MyDataState.map((item,index)=> {
-                     {
-                        return (
-                            <tr>
-                                <td className={"border border-gray-200 text-gray-400 "}>{item.ID}</td>
-                                <td className={"border border-gray-200 text-gray-400"}>{item.name}</td>
-                                <td className={"border border-gray-200 text-gray-400"}>{item.price}</td>
-                                <td className={"border border-gray-200 text-gray-400"}>
-                                    <button className={" text-pink-500"} onClick={()=>{deleteHandler(item.ID)}}>delete</button>
+                <tbody >
+                {
+                    MyDataState.map((item,index)=> {
+                        {
+                            return (
+                                <tr>
+                                    <td className={"border border-gray-200 text-gray-400 "}>{item.ID}</td>
+                                    <td className={"border border-gray-200 text-gray-400"}>{item.name}</td>
+                                    <td className={"border border-gray-200 text-gray-400"}>{item.price}</td>
+                                    <td className={"border border-gray-200 text-gray-400"}>
+                                        <button className={" text-pink-500"} onClick={()=>{deleteHandler(item.ID)}}>delete</button>
 
-                                </td>
-                            </tr>
-                        )
+                                    </td>
+                                </tr>
+                            )
 
-                    }
-                })
-            }
+                        }
+                    })
+                }
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </>
+
     );
 }
 

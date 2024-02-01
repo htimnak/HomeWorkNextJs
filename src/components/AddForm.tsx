@@ -2,7 +2,9 @@ import React from 'react';
 
 export default function AddForm(props) {
     return (
-        <div></div>
+       <>
+           <p>this is test.</p>
+       </>
     );
 }
 
