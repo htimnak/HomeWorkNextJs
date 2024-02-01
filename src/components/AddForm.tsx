@@ -1,20 +1,18 @@
-import React from 'react';
-const formData={
-    ID:"",
-    name:"",
-    price:"",
-}
+import React, {useState} from 'react';
+
 export default function AddForm({MyDataState,SetMyDataState}) {
+   const [nameState ,setNameState]=useState("");
+   const [priceState ,setPriceState]=useState("");
 
     const ChangeNameHandler =(e)=>{
-        formData.name= e.target.value;
+        setNameState(e.target.value);
     }
     const ChangePriceHandler=(e)=>{
-        formData.price= e.target.value;
+        setPriceState(e.target.value)
     }
     const SubmitHandler = (e)=>{
         e.preventDefault();
-
+        formData.ID= Math.random();
         console.log(formData);
         SetMyDataState([...MyDataState,formData]);
     }
