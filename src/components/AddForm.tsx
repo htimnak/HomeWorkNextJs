@@ -1,11 +1,11 @@
 import React from 'react';
+const formData={
+    ID:"",
+    name:"",
+    price:"",
+}
+export default function AddForm({MyDataState,SetMyDataState}) {
 
-export default function AddForm({SetMyDataState}) {
-    const formData={
-        ID:"",
-        name:"",
-        price:"",
-    }
     const ChangeNameHandler =(e)=>{
         formData.name= e.target.value;
     }
@@ -16,7 +16,7 @@ export default function AddForm({SetMyDataState}) {
         e.preventDefault();
 
         console.log(formData);
-        SetMyDataState([formData]);
+        SetMyDataState([...MyDataState,formData]);
     }
     return (
        <form className={"mb-4 p-4 bg-gray-50 shadow"} onSubmit={SubmitHandler}>
