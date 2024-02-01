@@ -23,7 +23,7 @@ let product =[
       className={`flex min-h-screen flex-col items-center bg-green-50 p-24 ${inter.className}`}
     >
     <MyTable myData={product} caption={"product1"}/>
-      <MyTable myData={product2} />
+
 
 
     </main>
