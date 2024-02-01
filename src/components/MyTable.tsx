@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
-interface Product {
+interface product {
     ID:number,
     name:string,
     price:number
 }
-
-export default  function MyTable({myData , caption}) {
+interface props {
+    myData :Array<product>,
+    caption ?: string
+}
+export default  function MyTable({myData , caption}:props) {
     const [MyDataState,SetMyDataState ]=useState(myData);
     const deleteHandler = (ID:number)=>{
         let  result= MyDataState.filter((item)=>{
