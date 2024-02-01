@@ -15,15 +15,20 @@ export default  function MyTable({myData , caption}) {
 
             <tbody >
             {
-                myData.map((item,index)=>{
-                    return(
-                        <tr>
-                            <td className={"border border-gray-200 text-gray-400 "}>{item.ID}</td>
-                            <td className={"border border-gray-200 text-gray-400"}>{item.name}</td>
-                            <td className={"border border-gray-200 text-gray-400"}>{item.price}</td>
-                        </tr>
+                myData.map((item,index)=> {
+                     {
+                        return (
+                            <tr>
+                                <td className={"border border-gray-200 text-gray-400 "}>{item.ID}</td>
+                                <td className={"border border-gray-200 text-gray-400"}>{item.name}</td>
+                                <td className={"border border-gray-200 text-gray-400"}>{item.price}</td>
+                                <td className={"border border-gray-200 text-gray-400"}>
+                                    <button className={" text-pink-500"} onClick={()=>{alert("I Happend...")}}>click on me</button>
+                                </td>
+                            </tr>
                         )
 
+                    }
                 })
             }
 
