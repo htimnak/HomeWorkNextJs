@@ -7,8 +7,15 @@ interface Product {
 
 export default  function MyTable({myData , caption}) {
     const [MyDataState,SetMyDataState ]=useState(myData);
-    function deleteHandler(ID:number){
-       
+    const deleteHandler = (ID:number)=>{
+        let  result= MyDataState.filter((item)=>{
+            if(item.ID != ID) {
+                return true;
+             }
+            }
+
+        )
+        SetMyDataState(result);
     }
    // console.log(myData);
     return (
@@ -19,7 +26,7 @@ export default  function MyTable({myData , caption}) {
 
             <tbody >
             {
-                myData.map((item,index)=> {
+                MyDataState.map((item,index)=> {
                      {
                         return (
                             <tr>
