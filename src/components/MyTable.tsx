@@ -24,7 +24,7 @@ export default  function MyTable({myData , caption}:props) {
    // console.log(myData);
     return (
         <>
-            <AddForm/>
+            <AddForm SetMyDataState={SetMyDataState}/>
             <table className={"w-full mb-24 "}>
                 {
                     caption && <caption className={"bg-green-200 text-gray-600"} style={{captionSide:"bottom"}}>{caption}</caption>
