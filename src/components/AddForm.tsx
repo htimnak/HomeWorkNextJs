@@ -4,7 +4,7 @@ export default function AddForm({SetMyDataState}) {
     const formData={
         ID:"",
         name:"",
-        price:""
+        price:"",
     }
     const ChangeNameHandler =(e)=>{
         formData.name= e.target.value;
@@ -16,7 +16,7 @@ export default function AddForm({SetMyDataState}) {
         e.preventDefault();
 
         console.log(formData);
-        //SetMyDataState(formData);
+        SetMyDataState([formData]);
     }
     return (
        <form className={"mb-4 p-4 bg-gray-50 shadow"} onSubmit={SubmitHandler}>
