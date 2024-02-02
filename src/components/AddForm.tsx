@@ -1,17 +1,21 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, FormEvent, useState} from 'react';
 import findMaxID from "@/utlis/findMaxID";
+import * as events from "events";
 
-export default function AddForm({MyDataState,SetMyDataState}) {
+
+
+export default function AddForm({SetMyDataState}) {
    const [nameState ,setNameState]=useState("");
    const [priceState ,setPriceState]=useState("");
 
-    const ChangeNameHandler =(e)=>{
+    const ChangeNameHandler = (e:ChangeEvent<HTMLInputElement>) => {
+
         setNameState(e.target.value)
-    }
-    const ChangePriceHandler=(e)=>{
+    };
+    const ChangePriceHandler=(e:ChangeEvent<HTMLInputElement>)=>{
         setPriceState(e.target.value)
     }
-    const SubmitHandler = (e)=>{
+    const SubmitHandler = (e:FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
        /* SetMyDataState([...MyDataState,{
             ID:findMaxID(MyDataState)+1  ,

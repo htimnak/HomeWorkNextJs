@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
 import AddForm from "@/components/AddForm";
-interface product {
-    ID:number,
-    name:string,
-    price:number
-}
-interface props {
-    myData :Array<product>,
+import Product from "@/types/Product";
+
+interface Props {
+    myData :Array<Product>,
     caption ?: string
 }
-export default  function MyTable({myData , caption}:props) {
+export default  function MyTable({myData , caption}:Props) {
     const [MyDataState,SetMyDataState ]=useState(myData);
     const deleteHandler = (ID:number)=>{
         let  result= MyDataState.filter((item)=>{
