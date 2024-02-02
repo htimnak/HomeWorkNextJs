@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import findMaxID from "@/utlis/findMaxID";
 
 export default function AddForm({MyDataState,SetMyDataState}) {
    const [nameState ,setNameState]=useState("");
@@ -14,7 +15,7 @@ export default function AddForm({MyDataState,SetMyDataState}) {
         e.preventDefault();
 
         SetMyDataState([...MyDataState,{
-            ID:Math.random(),
+            ID:findMaxID(MyDataState)+1,
             name: nameState,
             price: priceState
         }]);
