@@ -6,19 +6,21 @@ export default function AddForm({MyDataState,SetMyDataState}) {
    const [priceState ,setPriceState]=useState("");
 
     const ChangeNameHandler =(e)=>{
-        setNameState(e.target.value);
+        setNameState(e.target.value)
     }
     const ChangePriceHandler=(e)=>{
-        setPriceState(e.target.value);
+        setPriceState(e.target.value)
     }
     const SubmitHandler = (e)=>{
         e.preventDefault();
-        console.log(MyDataState);
         SetMyDataState([...MyDataState,{
+            ID:findMaxID(MyDataState)+1  ,
             name: nameState,
             price: priceState,
-            ID:findMaxID(MyDataState)+1,
+
+
         }]);
+        console.log(MyDataState);
         setNameState("");
         setPriceState("");
 
