@@ -13,14 +13,15 @@ export default function AddForm({MyDataState,SetMyDataState}) {
     }
     const SubmitHandler = (e)=>{
         e.preventDefault();
-
+        console.log(MyDataState);
         SetMyDataState([...MyDataState,{
-            ID:findMaxID(MyDataState)+1,
             name: nameState,
-            price: priceState
+            price: priceState,
+            ID:findMaxID(MyDataState)+1,
         }]);
         setNameState("");
         setPriceState("");
+
     }
     return (
        <form className={"mb-4 p-4 bg-gray-50 shadow"} onSubmit={SubmitHandler}>
