@@ -1,10 +1,16 @@
-import React, {ChangeEvent, FormEvent, useState} from 'react';
+import React, { useState} from 'react';
+import React, {ChangeEvent, FormEvent ,Dispatch, SetStateAction,} from 'react';
 import findMaxID from "@/utlis/findMaxID";
-import * as events from "events";
+import Product from "@/types/Product";
+import product from "@/types/Product";
+import {number} from "prop-types";
+interface Prop {
+    SetMyDataState : Dispatch<SetStateAction<Product[]>>
+}
 
 
 
-export default function AddForm({SetMyDataState}) {
+export default function AddForm({SetMyDataState}:Prop) {
    const [nameState ,setNameState]=useState("");
    const [priceState ,setPriceState]=useState("");
 
@@ -22,13 +28,16 @@ export default function AddForm({SetMyDataState}) {
             name: nameState,
             price: priceState,
         }]);*/
-        SetMyDataState((prevState)=>{
+        SetMyDataState((prevState :product[])=>{
+            let result: Product ={
+                ID:findMaxID(prevState)+1  ,
+                name: nameState,
+                price: Number(priceState),
+            };
+
+
             return[
-                ...prevState,{
-                    ID:findMaxID(prevState)+1  ,
-                    name: nameState,
-                    price: priceState,
-                }
+                ...prevState,result
             ]
         })
 
