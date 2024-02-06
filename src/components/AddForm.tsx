@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import type {ChangeEvent, FormEvent ,Dispatch, SetStateAction,} from 'react';
 import findMaxID from "@/utlis/findMaxID";
 import type  Product from "@/types/Product";
-import {number} from "prop-types";
+
 interface Prop {
     SetMyDataState : Dispatch<SetStateAction<Product[]>>
 }

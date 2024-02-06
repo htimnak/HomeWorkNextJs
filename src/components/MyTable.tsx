@@ -32,10 +32,10 @@ export default  function MyTable({myData , caption}:Props) {
                     MyDataState.map((item,index)=> {
 
                             return (
-                                <tr>
-                                    <td className={"border border-gray-200 text-gray-400 "}>{item.ID}</td>
+                                <tr key={index}>
+                                    <td className={"border border-gray-200 text-gray-400 "} >{item.ID}</td>
                                     <td className={"border border-gray-200 text-gray-400"}>{item.name}</td>
-                                    <td className={"border border-gray-200 text-gray-400"}>{item.price}</td>
+                                    <td className={"border border-gray-200 text-gray-400"} >{item.price}</td>
                                     <td className={"border border-gray-200 text-gray-400"}>
                                         <button className={" text-pink-500"} onClick={()=>{deleteHandler(item.ID)}}>delete</button>
 
