@@ -7,6 +7,7 @@ interface Props {
     caption ?: string
 }
 export default  function MyTable({myData , caption}:Props) {
+    console.log(" table component body ....");
     const [MyDataState,SetMyDataState ]=useState(myData);
     const deleteHandler = (ID:number)=>{
         let  result= MyDataState.filter((item)=>{

@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import MyTable from "@/components/MyTable";
+import {useState} from "react";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [counterState ,setCounterState]=useState(1);
+
 let product =[
   {ID:"1",name:"product1",price:"3000"},
   {ID:"2",name:"product2",price:"1500"},
@@ -19,10 +22,12 @@ let product =[
 
 
   return (
+
     <main
       className={`flex min-h-screen flex-col items-center bg-green-50 p-24 ${inter.className}`}
     >
     <MyTable myData={product} caption={"product1"}/>
+      <button className={"bg-pink-200 text-gray-600 border border-pink-400  px-4 py-4 rounded"} onClick={()=>{ setCounterState(prevState => prevState +1);}} >inc Counter</button>
 
 
 
