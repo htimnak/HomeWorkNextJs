@@ -7,9 +7,10 @@ interface Props {
 }
 
 export default  function MyTable({caption}:Props) {
-    let product = null;
-
+    let product :any[] = [];
+    console.log("1");
     useEffect(()=>{
+        console.log("useEffect");
          product =[
             {ID:"1",name:"product1",price:"3000"},
             {ID:"2",name:"product2",price:"1500"},
@@ -17,10 +18,12 @@ export default  function MyTable({caption}:Props) {
             {ID:"4",name:"product4",price:"2000"},
         ]
     },[])
+    console.log("2");
     console.log(" table component body ....");
-    const [MyDataState,SetMyDataState ]=useState<Product[]>(product);
+    const [MyDataState,SetMyDataState ]=useState<Product[]|Array<any>>(product);
+    const [refreshState ,setRefreshState] =useState(false)
     const deleteHandler = (ID:number)=>{
-        let  result= MyDataState.filter((item)=>{
+        let  result= MyDataState?.filter((item)=>{
             if(item.ID != ID) {
                 return true;
              }
@@ -29,9 +32,14 @@ export default  function MyTable({caption}:Props) {
         )
         SetMyDataState(result);
     }
+    const refresh=()=>{
+        setRefreshState(prevState =>  !prevState)
+    }
    // console.log(myData);
     return (
         <>
+            <button className={"bg-pink-200 text-gray-600 border border-pink-400  px-4 py-4 rounded"} onClick={refresh} >refresh</button>
+
             <AddForm MyDataState={MyDataState} SetMyDataState={SetMyDataState}/>
             <table className={"w-full mb-24 "}>
                 {
